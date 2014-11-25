@@ -13,6 +13,7 @@
 		B644E1D019ECAB20006093D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B644E1CF19ECAB20006093D0 /* Images.xcassets */; };
 		B644E1D319ECAB20006093D0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B644E1D119ECAB20006093D0 /* LaunchScreen.xib */; };
 		B644E1DF19ECAB20006093D0 /* SlotMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B644E1DE19ECAB20006093D0 /* SlotMachineTests.swift */; };
+		B67A5FD61A25332500DB5084 /* slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A5FD51A25332500DB5084 /* slot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		B644E1D819ECAB20006093D0 /* SlotMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlotMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B644E1DD19ECAB20006093D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B644E1DE19ECAB20006093D0 /* SlotMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineTests.swift; sourceTree = "<group>"; };
+		B67A5FD51A25332500DB5084 /* slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = slot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				B644E1C819ECAB20006093D0 /* AppDelegate.swift */,
 				B644E1CA19ECAB20006093D0 /* ViewController.swift */,
+				B67A5FD51A25332500DB5084 /* slot.swift */,
 				B644E1CC19ECAB20006093D0 /* Main.storyboard */,
 				B644E1CF19ECAB20006093D0 /* Images.xcassets */,
 				B644E1D119ECAB20006093D0 /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67A5FD61A25332500DB5084 /* slot.swift in Sources */,
 				B644E1CB19ECAB20006093D0 /* ViewController.swift in Sources */,
 				B644E1C919ECAB20006093D0 /* AppDelegate.swift in Sources */,
 			);
@@ -407,6 +411,7 @@
 				B644E1E419ECAB20006093D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B644E1E519ECAB20006093D0 /* Build configuration list for PBXNativeTarget "SlotMachineTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +420,7 @@
 				B644E1E719ECAB20006093D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
