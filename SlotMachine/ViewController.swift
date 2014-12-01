@@ -25,6 +25,7 @@ class ViewController: UIViewController
     var creditsTitleLabel: UILabel!
     var betTitleLabel: UILabel!
     var winnerPaidLabelTitleLabel: UILabel!
+    var winTypeLabel: UILabel!
     
     // Buttons in fourth container
     var resetButton: UIButton!
@@ -74,7 +75,6 @@ class ViewController: UIViewController
     
     func betButtonPressed (button: UIButton)
     {
-        println("betButtonPressed")
         if credits <= 0
         {
             showAlertWithText(header: "No More Credits", message: "Reset Game")
@@ -120,22 +120,40 @@ class ViewController: UIViewController
 
     func spinButtonPressed (button: UIButton)
     {
-        removeSlotImageViews()
-        slots = Factory.createSlots()
-        setupSecondContainer(self.secondContainer)
-        for var i = 0; i < 3; i++
+        if currentBet == 0
         {
-            for var x = 0; x < 3; x++
-            {
-                var instance = slots[i][x]
-                var ccolor = "Black"
-                if instance.isRed == true
-                {
-                    ccolor = "Red"
-                }
-                print("slots (" + "\(i)" + "," + "\(x)" + ") \(instance.value)" + " ")
-                println(ccolor)
-           }
+            showAlertWithText(header: "Place a bet first", message: "Tap Bet")
+        }
+        else
+        {
+
+            removeSlotImageViews()
+            slots = Factory.createSlots()
+            setupSecondContainer(self.secondContainer)
+    //        for var i = 0; i < slots.count; i++
+    //        {
+    //            for var x = 0; x < slots.count; x++
+    //            {
+    //                var instance = slots[i][x]
+    //                var ccolor = "Black"
+    //                if instance.isRed == true
+    //                {
+    //                    ccolor = "Red"
+    //                }
+    //                print("slots (" + "\(i)" + "," + "\(x)" + ") \(instance.value)" + " ")
+    //                println(ccolor)
+    //           }
+    //        }
+            
+    //        var winningMultiplier: (Int, String) = SlotBrain.computeWinnings(slots)
+            var winningsAndType = SlotBrain.computeWinnings(slots)
+            var winningMultiplier = winningsAndType.0
+            self.winTypeLabel.text = winningsAndType.1
+            self.winTypeLabel.sizeToFit()
+            winnings = winningMultiplier * currentBet
+            credits += winnings
+            currentBet = 0
+            updateMainView()
         }
     }
 
@@ -253,6 +271,15 @@ class ViewController: UIViewController
         self.winnerPaidLabelTitleLabel.sizeToFit()
         self.winnerPaidLabelTitleLabel.center = CGPoint(x: containerView.frame.width * kSixth * 5, y: containerView.frame.height * kThird * 2)
         containerView.addSubview(self.winnerPaidLabelTitleLabel)
+        
+        self.winTypeLabel = UILabel()
+        self.winTypeLabel.text = "Win Type"
+        self.winTypeLabel.textColor = UIColor.blackColor()
+        self.winTypeLabel.font = UIFont(name: "AmericanTypewriter", size: 14)
+        self.winTypeLabel.sizeToFit()
+        self.winTypeLabel.center = CGPoint(x: containerView.frame.width * kSixth * 1.1, y: containerView.frame.height * kThird * 2.5)
+        containerView.addSubview(self.winTypeLabel)
+        
     }
     
     func setupFourthContainer (containerView: UIView)
